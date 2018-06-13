@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <title>你好</title>
+</head>
+
+<style>
+    input.ng-invalid{
+        background-color: lightblue;
+    }
+</style>
+
+<body>
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+<!--名：<input type="text" ng-model="firstName"><br>-->
+<!--姓：<input type="text" ng-model="lastName"><br>-->
+
+<!--<br>-->
+<!--</div>-->
+
+<!-- 数字 -->
+<!--<div ng-app="" ng-init="quantity=1;cost=5">-->
+<!--<p>总价<span ng-bind="quantity*cost"></span></p>-->
+<!--</div>-->
+
+<!-- 字符串 -->
+<!--<div ng-app=""  ng-init="firstName='jhon';lastName='Doe'">-->
+<!--<p>姓名：{{firstName + "" + lastName}}</p>-->
+<!--</div>-->
+
+<!-- 对象 -->
+<!--<div ng-app="" ng-init="person={firstName:'jhon',lastName:'Doe'}">-->
+<!--<p>姓为{{person.firstName}}</p>-->
+<!--</div>-->
+
+<!-- 数组 -->
+<!--<div ng-app="" ng-init="points=[1,15,22,34,50]">-->
+<!--<p>第三个值为:{{points[2]}}</p>-->
+<!--</div>-->
+
+<!-- 指令 -->
+<!--<div ng-app="" ng-init="firstName = 'jhon'">-->
+<!--<p>在输入框中尝试输入：</p>-->
+<!--<p>姓名：<input type="text" ng-model="firstName"></p>-->
+<!--<p>你输入的为:{{firstName}}</p>-->
+<!--</div>-->
+
+<!-- 数据绑定 -->
+<!--<div ng-app=""  ng-init="m1=1;m2=4">-->
+<!--<h2>价格计算器</h2>-->
+<!--数量：<input type="text" ng-model="m1">-->
+<!--价格：<input type="text" ng-model="m2">-->
+
+<!--<p><b>总价：</b> {{m1*m2}}</p>-->
+<!--</div>-->
+
+
+<!-- 重复HTML元素 -->
+<!--<div ng-app="" ng-init="names=['张三','李四','王五']">-->
+<!--<p>使用ng-repeat来循环数组</p>-->
+<!--<ul>-->
+<!--<li ng-repeat="x in names">-->
+<!--{{x}}-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!-- 对象数组 -->
+<!--<div ng-app="" ng-init="names=[{name:'张三',age:20},{name:'李四',age:15},{name:'王五',age:28}]">-->
+
+<!--<p>循环对象数组</p>-->
+<!--<ul>-->
+<!--<li ng-repeat="x in names">-->
+<!--{{"姓名：" + x.name + "&#45;&#45;&#45;&#45;年龄：" + x.age}}-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!-- 自定义指令 -->
+<!--<div ng-app="myApp">-->
+<!--<runoob-directive></runoob-directive>-->
+<!--<div runoob-directive></div>-->
+<!--</div>-->
+
+<!-- 双向绑定 -->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--名字：<input type="text" ng-model="firstName">-->
+    <!--<h1>你输入了：{{firstName}}</h1>-->
+<!--</div>-->
+
+<!-- 验证用户输入 -->
+<!--<form ng-app="" name="myForm">-->
+    <!--Email:-->
+    <!--<input type="email" name="myAddress" ng-model="text">-->
+    <!--<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>-->
+<!--</form>-->
+
+<!-- 应用状态 -->
+<!--<form ng-app="" name="myForm" ng-init="myText='test@runoob.com'">-->
+    <!--Email:-->
+    <!--<input type="email" name="myAddress" ng-model="myText" required>-->
+    <!--<h1>状态</h1>-->
+    <!--{{myForm.myAddress.$valid}}-->
+    <!--{{myForm.myAddress.$dirty}}-->
+    <!--{{myForm.myAddress.$touched}}-->
+<!--</form>-->
+
+<!-- CSS类 -->
+<!--<form ng-app="" name="myForm">-->
+    <!--输入你的名字：-->
+    <!--<input name="myAddress" ng-model="text" required>-->
+<!--</form>-->
+
+ <!--如何使用scope -->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--<input ng-model="name">-->
+    <!--<h1>{{greeting}}</h1>-->
+    <!--<button ng-click="sayHello()">点我</button>-->
+<!--</div>-->
+
+<!-- scope的作用范围 -->
+<!--<div ng-app="myApp" >-->
+    <!--<div ng-controller="myController">-->
+        <!--<h1>{{lastName}}家族成员</h1>-->
+        <!--<ul>-->
+            <!--<li ng-repeat="x in names track by $index">-->
+                <!--{{x}}.{{lastName}}-->
+                <!--<button ng-click="delPerson($index)">删除</button>-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        <!--<p>-->
+            <!--添加成员：-->
+            <!--<input type="text" ng-model="name" placeholder="请输入需要添加的成员的名字">-->
+        <!--</p>-->
+        <!--<button ng-click="addPerson(name)">确认添加</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!-- 控制器 -->
+<!--<div ng-app="myApp" ng-controller="myController">-->
+    <!--姓：<input type="text" ng-model="firstName"><br>-->
+    <!--名：<input type="text" ng-model="lastName"><br>-->
+    <!--<br>-->
+    <!--姓名：{{fullName()}}-->
+<!--</div>-->
+
+<!-- 抽取controller代码 -->
+<!--<div ng-app="myApp" ng-controller="nameController">-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names | orderBy:'country'">-->
+            <!--{{x.name + ', ' + x.country}}-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--<br><br>-->
+    <!--请输入检索条件：<input type="text" ng-model="test">-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names | filter:test | orderBy:'country'">-->
+            <!--{{(x.name | uppercase) + ', ' + x.country}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!-- 自定义过滤器 -->
+<!--<div ng-app="myApp" ng-controller="nameController">-->
+    <!--姓名：{{msg | reverse}}<br>-->
+    <!--date格式化：{{1490161945000 | date:"yyyy-MM-dd HH:mm:ss"}}<br>-->
+    <!--number格式化（保留小数）：{{149023.1231231200 | number:2}}<br>-->
+    <!--currency货币格式化：{{250 | currency}}<br>{{250 | currency:"RMB ￥ "}}<br>-->
+    <!--查找name为iphone的行：-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in ages | filter:{'name':'iphone'}">-->
+            <!--{{x.name}}-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--limitTo截取：{{"1231231231234534534" | limitTo : 6}}<br>{{"1231231231234534534" | limitTo : -4}}<br>-->
+    <!--orderBy排序：-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in ages | orderBy:'id'">-->
+            <!--{{x.name + "   " + x.id}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!-- 过滤器的实例 -->
+<!--<div ng-app="myApp" ng-controller="nameController">-->
+    <!--<div ng-bind="myName | uppercase"></div>-->
+    <!--<div ng-bind="myName | lowercase"></div>-->
+    <!--<div class="" ng-bind="money | currency:'￥'"></div>-->
+    <!--<div class="" ng-repeat="v in city | orderBy:'id'">-->
+        <!--<p ng-bind="v.name"></p>-->
+    <!--</div>-->
+
+    <!--<div class="" ng-repeat="v in city | orderBy:'-id' | filter:''">-->
+        <!--<p ng-bind="v.name" style="color:red"></p>-->
+    <!--</div>-->
+
+    <!--<div class="" ng-bind="myName | myFilter" style="color: blue;"></div>-->
+
+<!--</div>-->
+
+<!-- 内置服务 -->
+<!--<div ng-app="myApp" ng-controller="nameController">-->
+    <!--<p>255的16进制是：</p>-->
+    <!--<h1>{{255 | myFilter}}</h1>-->
+    <!--<br>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in counts">-->
+            <!--{{x | myFilter}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!-- 不使用服务实现每秒显示信息 -->
+<!--<div ng-app="myApp" ng-controller="nameController">-->
+    <!--<p>现在的时间是：</p>-->
+    <!--<p1>{{theTime}}</p1>-->
+<!--</div>-->
+
+<!-- HTTP 服务 -->
+<!--<div ng-app="myApp" ng-controller="siteCtrl">-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names">-->
+            <!--{{x.Name + ", " + x.Country}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!-- 使用ng-options创建选择框 -->
+<div ng-app="myApp" ng-controller="nameController">
+    <select ng-init="selectName = names[0]" ng-model="selectName" ng-options="x for x in names"></select><br>
+    <select>
+        <option ng-repeat="x in names">{{x}}</option>
+    </select><br>
+
+    <p>选择的网站是：</p>
+    <select ng-model="selectedSite">
+        <option ng-repeat="x in sites" value="{{x.url}}">{{x.site}}</option>
+    </select>
+    <h1>你选择的是：{{selectedSite}}</h1><br><br><br>
+
+
+    <select ng-model="selectedSite" ng-options="x.site for x in sites">
+    </select>
+
+    <h1>你选择的是：{{selectedSite.site}}</h1>
+    <p>网址为：{{selectedSite.url}}</p>
+</div>
+
+<script>
+
+    var app = angular.module('myApp',[])
+    //创建输入选择框
+    app.controller('nameController',function ($scope) {
+      $scope.sites = [
+          {site:"Google",url:"http://www.google.com"},
+          {site:"Runoob",url:"https://www.runoob.com"},
+          {site:"Taobao",url:"http://www.taobao.com"}
+          ]
+    })
+
+    // app.controller('myController',function ($scope,$http) {
+    //     $http({
+    //         method:'GET'
+    //         url:'https://www.runoob.com/try/angularjs/data/sites.php'
+    //     }).then(function successCallback(response) {
+    //         $scope.names = response.data.sites;
+    //     },function errorCallback(response) {
+    //         //请求失败代码
+    //     })
+    // })
+
+    // app.controller('siteCtrl', function($scope, $http) {
+    //     $http({
+    //         method: 'GET',
+    //         url: 'https://www.runoob.com/try/angularjs/data/sites.php'
+    //     }).then(function successCallback(response) {
+    //         $scope.names = response.data.sites;
+    //     }, function errorCallback(response) {
+    //         // 请求失败执行代码
+    //     });
+    //
+    // });
+    // //创建自定义服务
+    // app.service('hexafy',function () {
+    //     this.myFunc = function (x) {
+    //         return x.toString(16)
+    //     }
+    // })
+    // app.controller('nameController',function ($scope) {
+    //     $scope.theTime = new Date().toLocaleTimeString();
+    //     $scope.setTime = function () {
+    //         $scope.$apply(function () {
+    //             $scope.theTime = new Date().toLocaleTimeString();
+    //         })
+    //     }
+    //     setInterval($scope.setTime,1000);
+    // })
+        // app.controller('nameController',function ($scope,$timeout,$interval,hexafy) {
+        //     //定时器
+        //     $scope.myHeader = "Hello World!";
+        //     $scope.hex = hexafy.myFunc(255)
+        //     $timeout(function () {
+        //         $scope.myHeader = "How are you today?";
+        //     }, 2000);
+        //
+        //     //interval服务
+        //     $scope.theTime = new Date().toLocaleTimeString()
+        //     $interval(function () {
+        //         $scope.theTime = new Date().toLocaleTimeString()
+        //     },1000)
+        //     $scope.counts = [255,251,200]
+        //
+        // })
+
+        // .filter('reverse',function () {
+        //     return function (text) {
+        //         return text.split("").reverse().join("")
+        //     }
+        // })
+        app.filter('myFilter',['hexafy',function (hexafy) {
+            return function (x) {
+                return hexafy.myFunc(x);
+            }
+        }]);
+
+    // angular.module('myApp', [])
+    //     .controller('myController',function ($scope,$rootScope) {
+    //         $scope.name = '';
+    //         $scope.names = ["张三","李四","王五","赵六","吴七"]
+    //
+    //         $scope.sayHello = function () {
+    //             $scope.greeting = "hellow," + $scope.name + "!"
+    //         }
+    //
+    //         $scope.delPerson = function (index) {
+    //             //从数组中移除对像
+    //             $scope.names.splice(index,1)
+    //         }
+    //
+    //         $scope.addPerson = function (name) {
+    //             $scope.names.push(name)
+    //         }
+    //
+    //         $rootScope.lastName = "晓龙"
+    //     })
+
+    // app.controller('myCtrl', function ($scope,$rootScope) {
+    //     $scope.name = "徐晓龙"
+    //     $scope.sayHello = function () {
+    //         $scope.greeting = 'hellow ' +$scope.name + '!'
+    //     }
+    //     $scope.names = ["张三","李四","王五"]
+    //     $rootScope.myname = "小小龙"
+    // });
+    //
+    // app.directive("runoobDirective", function () {
+    //     return {
+    //         restrict: "A",
+    //         template: "<h1>自定义指令！</h1>"
+    //     }
+    // })
+
+</script>
+
+</body>
+</html>
